@@ -60,14 +60,16 @@ def main():
     # Load data from files into memory
     print("Loading data...")
     load_data(directory)
-    print("Data loaded.")
+    print(f"Data loaded from '{directory}'.")
 
-    source = person_id_for_name(input("Name: "))
-    if source is None:
-        sys.exit("Person not found.")
-    target = person_id_for_name(input("Name: "))
-    if target is None:
-        sys.exit("Person not found.")
+    # source = person_id_for_name(input("Name: "))
+    # if source is None:
+    #     sys.exit("Person not found.")
+    # target = person_id_for_name(input("Name: "))
+    # if target is None:
+    #     sys.exit("Person not found.")
+    source = 193 #Demi Moore
+    target = 158 #Tom Hanks
 
     path = shortest_path(source, target)
 
@@ -91,9 +93,23 @@ def shortest_path(source, target):
 
     If no possible path, returns None.
     """
+    neighbors = neighbors_for_person(str(source))
+    for movie_id, person_id in neighbors:
+        print(f"Movie ID: {movie_id}, Person ID: {person_id}")
+    # start = Node(state=start, parent=None, action=None)
+    # frontier = QueueFrontier()
+    # frontier.add(start)
 
-    # TODO
-    raise NotImplementedError
+    # explored = set()
+
+    # while True:
+    #     if frontier.empty():
+    #         return None
+
+    #     node = frontier.remove()
+        
+
+    #     if state == target:
 
 
 def person_id_for_name(name):
